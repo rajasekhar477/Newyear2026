@@ -361,6 +361,7 @@ document.getElementById('autoShow').addEventListener('click', function () {
    }
 });
 
+
 // Toggle UI visibility
 document.getElementById('toggleUI').addEventListener('click', () => {
    document.body.classList.toggle('hide-ui');

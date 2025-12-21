@@ -93,7 +93,7 @@
 
         <header>
             <h1>Fireworks Composer</h1>
-            <p class="subtitle">Celebrate New Year 2026</p>
+            <p class="subtitle">Celebration of life</p>
         </header>
 
         <!-- Bright, visible Happy New Year block (now inside UI, no overlap) -->
@@ -146,49 +146,85 @@
     <audio id="bg-music" src="newyear-music.mp3" loop></audio>    
 	<audio id="firework-sound" src="fireworksound.mp3" loop></audio>
 
+														  
+			
+																	   
+																											
+													 
 
     <!-- <button class="music-toggle-btn" id="musicToggle">Play Music</button> -->
+																
 
-    <script src="tooplate-fireworks-composer.js"></script>
-    <script>
-        // Background music toggle
-        // const bgMusic = document.getElementById('bg-music');
-		//         const musicToggleBtn = document.getElementById('musicToggle');
+   <script src="tooplate-fireworks-composer.js"></script>
+<script>
+    // Firework sound for clicks and auto-show
+    const fireworkSound = document.getElementById('firework-sound');
+    const canvasEl = document.getElementById('canvas');
+    const autoShowBtn = document.getElementById('autoShow');
+											 
+			  
+		 
 
-		//         musicToggleBtn.addEventListener('click', () => {
-		//             if (bgMusic.paused) {
-		//                 bgMusic.play().catch(() => {});
-		//                 musicToggleBtn.textContent = 'Pause Music';
-		//             } else {
-		//                 bgMusic.pause();
-		//                 musicToggleBtn.textContent = 'Play Music';
-		//             }
-		//         });
+    // OPTIONAL: adjust volume (0.0–1.0)
+    fireworkSound.volume = 0.5;
+		   
 
+    function startFireworkSound() {
+        fireworkSound.currentTime = 0;
+										  
+        fireworkSound.play().catch(() => {});
+    }
 
-        // Firework sound for clicks and auto-show
-        const fireworkSound = document.getElementById('firework-sound');
-        const canvasEl = document.getElementById('canvas');
-        const autoShowBtn = document.getElementById('autoShow');
+    function stopFireworkSound() {
+        fireworkSound.pause();
+        fireworkSound.currentTime = 0;
+    }
 
-        function playFireworkSound() {
-            fireworkSound.currentTime = 0;
-            fireworkSound.play().catch(() => {});
+    // Click anywhere: just play a short burst (no loop)
+    canvasEl.addEventListener('click', () => {
+        // If you want only a one‑shot sound, temporarily remove loop
+        const wasLooping = fireworkSound.loop;
+        fireworkSound.loop = false;
+        startFireworkSound();
+        fireworkSound.onended = () => {
+            fireworkSound.loop = wasLooping;
+        };
+    });
+
+    // Actions button: toggle auto show + sound
+    autoShowBtn.addEventListener('click', () => {
+        const isActive = autoShowBtn.classList.contains('active');
+
+        if (!isActive) {
+            // turning ON auto show
+            autoShowBtn.classList.add('active');
+            autoShowBtn.querySelector('.button-text').textContent = 'Stop';
+            startFireworkSound();      // start loop
+            // If your JS file has a function to start the show, call it here
+            // startAutoShow();
+        } else {
+            // turning OFF auto show
+            autoShowBtn.classList.remove('active');
+            autoShowBtn.querySelector('.button-text').textContent = 'Play';
+            stopFireworkSound();       // fully stop sound
+            // If your JS file has a function to stop the show, call it here
+            // stopAutoShow();
         }
+    });
+</script>
 
-        // Play sound when user clicks to launch fireworks
-        canvasEl.addEventListener('click', () => {
-            playFireworkSound();
-        });
-
-        // Play sound when auto show is toggled to play (button becomes active)
-        autoShowBtn.addEventListener('click', () => {
-            const isPlaying = autoShowBtn.classList.contains('active');
-            if (!isPlaying) {
-                // about to start the show
-                playFireworkSound();
-            }
-        });
-    </script>
+														
+														   
+																					 
+																 
+							
+											
+									
+					
+											 
+										 
+			 
+		   
+			 
 </body>
 </html>
