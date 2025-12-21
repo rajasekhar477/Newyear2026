@@ -8,23 +8,77 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="tooplate-fireworks-style.css">
-<!--
 
-Tooplate 2153 Fireworks Composer
+    <!-- Extra styling for bright, non-overlapping Happy New Year -->
+    <style>
+        /* Year block sits inside UI, under the header, so it does not overlap */
+        .year-display {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #ffeeba;
+    text-shadow: 0 0 10px #ffffff, 0 0 25px #ffcc00;
+    font-family: "Cormorant Garamond", serif;
+    pointer-events: none;
+    z-index: 15; /* above canvas and UI */
+}
 
-https://www.tooplate.com/view/2153-fireworks-composer
+.year-line1 {
+    display: block;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
 
-Free HTML CSS Template
+.year-line2 {
+    display: block;
+    font-weight: 700;
+}
 
--->
+@media (max-width: 768px) {
+    .year-line1 {
+        font-size: 1.6rem;
+    }
+    .year-line2 {
+        font-size: 2.4rem;
+    }
+}
+
+@media (min-width: 769px) {
+    .year-line1 {
+        font-size: 2rem;
+    }
+    .year-line2 {
+        font-size: 3rem;
+    }
+}
+
+
+        /* Simple music toggle button */
+        .music-toggle-btn {
+            position: fixed;
+            bottom: 16px;
+            right: 16px;
+            z-index: 20;
+            padding: 8px 14px;
+            border-radius: 999px;
+            border: none;
+            background: rgba(0, 0, 0, 0.6);
+            color: #ffffff;
+            font-family: "Work Sans", sans-serif;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+
+        .music-toggle-btn:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+    </style>
 </head>
 <body>
     <canvas id="canvas"></canvas>
-    
-    <div class="year-display">
-        <span class="year-line1">Happy New Year</span>
-        <span class="year-line2">2026</span>
-    </div>
 
     <div class="ui-container">
         <button class="fullscreen-btn" id="fullscreenBtn" title="Toggle Fullscreen">⛶</button>
@@ -34,13 +88,19 @@ Free HTML CSS Template
         </button>
         
         <div class="developer-credit">
-            Developed by <a rel="nofollow" href="https://www.tooplate.com" target="_blank">Tooplate</a>
+            Created by Raj
         </div>
 
         <header>
             <h1>Fireworks Composer</h1>
-            <p class="subtitle">Create Your Celebration</p>
+            <p class="subtitle">Celebrate New Year 2026</p>
         </header>
+
+        <!-- Bright, visible Happy New Year block (now inside UI, no overlap) -->
+        <div class="year-display">
+            <span class="year-line1">Happy Christmas to all</span>
+            <span class="year-line2">KrupaRaju -Reddykunta</span>
+        </div>
 
         <div class="instructions">
             <h2>Click anywhere to launch fireworks</h2>
@@ -81,6 +141,54 @@ Free HTML CSS Template
             </div>
         </div>
     </div>
-<script src="tooplate-fireworks-composer.js"></script>
+
+    <!-- Background music and firework sound (put MP3 files next to index.html) -->
+    <audio id="bg-music" src="newyear-music.mp3" loop></audio>    
+	<audio id="firework-sound" src="fireworksound.mp3" loop></audio>
+
+
+    <!-- <button class="music-toggle-btn" id="musicToggle">Play Music</button> -->
+
+    <script src="tooplate-fireworks-composer.js"></script>
+    <script>
+        // Background music toggle
+        // const bgMusic = document.getElementById('bg-music');
+		//         const musicToggleBtn = document.getElementById('musicToggle');
+
+		//         musicToggleBtn.addEventListener('click', () => {
+		//             if (bgMusic.paused) {
+		//                 bgMusic.play().catch(() => {});
+		//                 musicToggleBtn.textContent = 'Pause Music';
+		//             } else {
+		//                 bgMusic.pause();
+		//                 musicToggleBtn.textContent = 'Play Music';
+		//             }
+		//         });
+
+
+        // Firework sound for clicks and auto-show
+        const fireworkSound = document.getElementById('firework-sound');
+        const canvasEl = document.getElementById('canvas');
+        const autoShowBtn = document.getElementById('autoShow');
+
+        function playFireworkSound() {
+            fireworkSound.currentTime = 0;
+            fireworkSound.play().catch(() => {});
+        }
+
+        // Play sound when user clicks to launch fireworks
+        canvasEl.addEventListener('click', () => {
+            playFireworkSound();
+        });
+
+        // Play sound when auto show is toggled to play (button becomes active)
+        autoShowBtn.addEventListener('click', () => {
+            const isPlaying = autoShowBtn.classList.contains('active');
+            if (!isPlaying) {
+                // about to start the show
+                playFireworkSound();
+            }
+        });
+    </script>
 </body>
 </html>
