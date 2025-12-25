@@ -3,228 +3,184 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fireworks Composer - New Year 2026</title>
+    <meta name="description" content="RSGH - Ready Start Go Head | Empowering tech careers, software testing tutorials, and career guidance for aspiring developers and QA engineers.">
+    <meta name="keywords" content="software testing, QA engineer, automation testing, career guidance, tech tutorials, RSGH, Ready Start Go Head">
+    <title>RSGH - Ready Start Go Head | Tech Career & Software Testing</title>
+    <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="tooplate-fireworks-style.css">
-
-    <!-- Extra styling for bright, non-overlapping Happy New Year -->
-    <style>
-        /* Year block sits inside UI, under the header, so it does not overlap */
-        .year-display {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: #ffeeba;
-    text-shadow: 0 0 10px #ffffff, 0 0 25px #ffcc00;
-    font-family: "Cormorant Garamond", serif;
-    pointer-events: none;
-    z-index: 15; /* above canvas and UI */
-}
-
-.year-line1 {
-    display: block;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-}
-
-.year-line2 {
-    display: block;
-    font-weight: 700;
-}
-
-@media (max-width: 768px) {
-    .year-line1 {
-        font-size: 1.6rem;
-    }
-    .year-line2 {
-        font-size: 2.4rem;
-    }
-}
-
-@media (min-width: 769px) {
-    .year-line1 {
-        font-size: 2rem;
-    }
-    .year-line2 {
-        font-size: 3rem;
-    }
-}
-
-
-        /* Simple music toggle button */
-        .music-toggle-btn {
-            position: fixed;
-            bottom: 16px;
-            right: 16px;
-            z-index: 20;
-            padding: 8px 14px;
-            border-radius: 999px;
-            border: none;
-            background: rgba(0, 0, 0, 0.6);
-            color: #ffffff;
-            font-family: "Work Sans", sans-serif;
-            font-size: 0.9rem;
-            cursor: pointer;
-        }
-
-        .music-toggle-btn:hover {
-            background: rgba(255, 255, 255, 0.15);
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <canvas id="canvas"></canvas>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h2>RSGH</h2>
+                <span class="brand-tagline">Ready Start Go Head</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+    </nav>
 
-    <div class="ui-container">
-        <button class="fullscreen-btn" id="fullscreenBtn" title="Toggle Fullscreen">⛶</button>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Ready Start Go Head</h1>
+                <p class="hero-subtitle">Your journey to a successful tech career starts here</p>
+                <p class="hero-description">Free tutorials, career guidance, and resources for aspiring software testers, QA engineers, and developers. Join thousands learning to break into tech!</p>
+                <div class="hero-buttons">
+                    <a href="blog.html" class="btn btn-primary">Read Tutorials</a>
+                    <a href="resources.html" class="btn btn-secondary">Free Resources</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3 class="stat-number">50+</h3>
+                    <p class="stat-label">Free Tutorials</p>
+                </div>
+                <div class="stat-card">
+                    <h3 class="stat-number">1000+</h3>
+                    <p class="stat-label">Community Members</p>
+                </div>
+                <div class="stat-card">
+                    <h3 class="stat-number">100%</h3>
+                    <p class="stat-label">Free Content</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Content -->
+    <section class="featured">
+        <div class="container">
+            <h2 class="section-title">Popular Tutorials</h2>
+            <div class="featured-grid">
+                <div class="featured-card">
+                    <span class="card-tag">Career</span>
+                    <h3>How I Got My First Software Testing Job</h3>
+                    <p>A complete roadmap from learning to landing your first QA role in 2026. No prior experience needed!</p>
+                    <a href="blog.html#post1" class="card-link">Read More →</a>
+                </div>
+                <div class="featured-card">
+                    <span class="card-tag">Tutorial</span>
+                    <h3>5 Free Tools Every QA Engineer Should Know</h3>
+                    <p>Discover the essential free testing tools that will boost your productivity and make you stand out.</p>
+                    <a href="blog.html#post2" class="card-link">Read More →</a>
+                </div>
+                <div class="featured-card">
+                    <span class="card-tag">Guide</span>
+                    <h3>Building Your First Website with GitHub Pages</h3>
+                    <p>Step-by-step tutorial on creating and deploying your portfolio website for free using GitHub Pages.</p>
+                    <a href="blog.html#post3" class="card-link">Read More →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Start Your Tech Career Today</h2>
+                <p>Join our community and get access to exclusive tutorials, resources, and career guidance.</p>
+                <form class="email-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                    <input type="email" name="email" placeholder="Enter your email" required>
+                    <button type="submit" class="btn btn-primary">Get Free Guide</button>
+                </form>
+                <p class="privacy-note">We respect your privacy. Unsubscribe anytime.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Preview -->
+    <section class="services-preview">
+        <div class="container">
+            <h2 class="section-title">How I Can Help You</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">💼</div>
+                    <h3>Career Consulting</h3>
+                    <p>1-on-1 guidance on breaking into software testing and QA roles</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎓</div>
+                    <h3>Test Automation</h3>
+                    <p>Learn automation testing from scratch to advanced</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💻</div>
+                    <h3>Website Development</h3>
+                    <p>Custom website development for small businesses</p>
+                </div>
+            </div>
+            <div class="cta-button">
+                <a href="services.html" class="btn btn-primary">View All Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>RSGH</h3>
+                    <p>Ready Start Go Head</p>
+                    <p>Empowering tech careers since 2025</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-connect">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
+                        <li><a href="https://github.com/rajasekhar477" target="_blank">GitHub</a></li>
+                        <li><a href="mailto:contact@rsgh.online">Email</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 RSGH - Ready Start Go Head. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple mobile menu toggle
+        const navMenu = document.querySelector('.nav-menu');
+        const navBrand = document.querySelector('.nav-brand');
         
-        <button class="eye-btn" id="toggleUI" title="Toggle UI Visibility">
-            <span class="eye-icon">👁</span>
-        </button>
-        
-        <div class="developer-credit">
-            Created by Raj
-        </div>
-
-        <header>
-            <h1>Fireworks Composer</h1>
-            <p class="subtitle">Celebration of life</p>
-        </header>
-
-        <!-- Bright, visible Happy New Year block (now inside UI, no overlap) -->
-        <div class="year-display">
-            <span class="year-line1">Happy Christmas to IP team</span>
-            <span class="year-line2">from Raj</span>
-        </div>
-
-        <div class="instructions">
-            <h2>Click anywhere to launch fireworks</h2>
-            <p>Choose your colors and patterns below</p>
-        </div>
-
-        <div class="controls">
-            <div class="control-group">
-                <span class="control-label">Color</span>
-                <div class="color-palette">
-                    <div class="color-option burgundy active" data-color="#FF5A6E"></div>
-                    <div class="color-option gold" data-color="#FFD700"></div>
-                    <div class="color-option emerald" data-color="#3FE0A0"></div>
-                    <div class="color-option purple" data-color="#B377FF"></div>
-                    <div class="color-option champagne" data-color="#FFFEF7"></div>
-                </div>
-            </div>
-
-            <div class="control-group">
-                <span class="control-label">Pattern</span>
-                <div class="firework-types">
-                    <button class="type-btn active" data-type="burst">Burst</button>
-                    <button class="type-btn" data-type="ring">Ring</button>
-                    <button class="type-btn" data-type="willow">Willow</button>
-                    <button class="type-btn" data-type="spiral">Spiral</button>
-                </div>
-            </div>
-
-            <div class="control-group">
-                <span class="control-label">Actions</span>
-                <div class="action-buttons">
-                    <button class="action-btn" id="autoShow">
-                        <span class="play-icon">▶</span>
-                        <span class="stop-icon">⏹</span>
-                        <span class="button-text">Play</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Background music and firework sound (put MP3 files next to index.html) -->
-    <audio id="bg-music" src="newyear-music.mp3" loop></audio>    
-	<audio id="firework-sound" src="fireworksound.mp3" loop></audio>
-
-														  
-			
-																	   
-																											
-													 
-
-    <!-- <button class="music-toggle-btn" id="musicToggle">Play Music</button> -->
-																
-
-   <script src="tooplate-fireworks-composer.js"></script>
-<script>
-    // Firework sound for clicks and auto-show
-    const fireworkSound = document.getElementById('firework-sound');
-    const canvasEl = document.getElementById('canvas');
-    const autoShowBtn = document.getElementById('autoShow');
-											 
-			  
-		 
-
-    // OPTIONAL: adjust volume (0.0–1.0)
-    fireworkSound.volume = 0.5;
-		   
-
-    function startFireworkSound() {
-        fireworkSound.currentTime = 0;
-										  
-        fireworkSound.play().catch(() => {});
-    }
-
-    function stopFireworkSound() {
-        fireworkSound.pause();
-        fireworkSound.currentTime = 0;
-    }
-
-    // Click anywhere: just play a short burst (no loop)
-    canvasEl.addEventListener('click', () => {
-        // If you want only a one‑shot sound, temporarily remove loop
-        const wasLooping = fireworkSound.loop;
-        fireworkSound.loop = false;
-        startFireworkSound();
-        fireworkSound.onended = () => {
-            fireworkSound.loop = wasLooping;
-        };
-    });
-
-    // Actions button: toggle auto show + sound
-    autoShowBtn.addEventListener('click', () => {
-        const isActive = autoShowBtn.classList.contains('active');
-
-        if (!isActive) {
-            // turning ON auto show
-            autoShowBtn.classList.add('active');
-            autoShowBtn.querySelector('.button-text').textContent = 'Stop';
-            startFireworkSound();      // start loop
-            // If your JS file has a function to start the show, call it here
-            // startAutoShow();
-        } else {
-            // turning OFF auto show
-            autoShowBtn.classList.remove('active');
-            autoShowBtn.querySelector('.button-text').textContent = 'Play';
-            stopFireworkSound();       // fully stop sound
-            // If your JS file has a function to stop the show, call it here
-            // stopAutoShow();
-        }
-    });
-</script>
-
-														
-														   
-																					 
-																 
-							
-											
-									
-					
-											 
-										 
-			 
-		   
-			 
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
